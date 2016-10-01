@@ -1,38 +1,131 @@
 body{
-    font-family:monospace;
+    font-family: monospace;
+    background-color:#FFFFFF;
     font-size: 18px;
-    background-color:#f0f8ff;
 }
 
 ul{
+    font-family:monospace; 
+    margin-top: 15%;
     padding-top: 10px;
     padding-bottom: 10px;
+    list-style: none;
+}
+
+ul a{
+    font-family:inherit; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style: none;
+    text-decoration: none;
+}
+
+li{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #506362;
+    border-radius: 10px;
+    width: 150px;
+    background: #6C929F;
+    color: #104050;
+    text-align: center;
 }
 .inner{
     display: inline-block;
     vertical-align: middle;
 }
 
-.navbar{
+.barraizquierda{
     float: left;
-    width: 15%;
-    height: auto;
     margin-top: 2%;
-    border: 1px solid #000000;
-    border-radius: 15px;
+    width: 18%;
 }
-header{
-    height: auto;
-    vertical-align: bottom;
+.navbar{
+    font-family: monospace;
+    background: #D6E6F2;
     width: 100%;
-
+    border: 1px solid #457585;
+    border-radius: 15px;
+    padding-top: 0px;
+    position: relative;
+    
+}
+.navbar2{
+    font-family: monospace;
+    background: #D6E6F2;
+    width: 100%;
+    margin-top: 10%;
+    border: 1px solid #457585;
+    border-radius: 15px;
+    position: relative;
 }
 
-.divheader{
+.barraderecha{
+    float: left;
+    width: 20%;
+    margin-top: 2%;
+    margin-top: 2%;
+}
+.navbarderecha{
+    padding-top: 25%;
+    padding-bottom: 15%;
+    float: left;
+    width: 100%;
+    height: auto;
+    border: 1px solid #457585;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.continerprincipal{
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
-    width:70%;
-    text-align: center;
-    border: 1px solid #000000;
-    border-radius: 25px;
+}
+.cuadrocentral {
+    margin-top: 2%;
+    border-radius: 15px;
+    width: 55%;
+    height: 100%;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    
+}
+header{
+    font-family:monospace;
+    height: 200px;
+    width: 100%;
+    padding-left: auto;
+    padding-right: auto;
+    background: #022835;
+    border-bottom: 2px solid #022835;
+    color: #6C929F;
+    
+}
+
+h3 {
+    font-family: monospace;
+    font-style: italic;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: #104050;
+    color: #6C929F;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    border: 1px solid #457585;
+}
+.articulovistahome{
+    width: auto;
+    height: 400px;
+    border: 2px solid #457585;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    
 }
