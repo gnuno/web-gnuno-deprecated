@@ -1,4 +1,23 @@
 <!DOCTYPE html> 
+<?php
+$emailError ="";
+if(isset($_POST['submit'])){
+
+$email = test_input($_POST["email"]);
+// check if e-mail address syntax is valid or not
+if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email)) {
+$emailError = "Formato de email invalido";
+}
+    
+function test_input($data) {
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data);
+return $data;
+}
+}
+//php code ends here
+?>
 <html>
 
 <head>
@@ -7,6 +26,8 @@
 <link type="text/css" rel="stylesheet" href="css/css.css">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="noindex, nofollow" name="robots">
+    <script type="text/javascript" src="scripts/alert.js"></script>
 </head>
 <body>
 <header>
@@ -22,7 +43,7 @@
             <li class="linav"><a href="nosotros.html">¿Que es GNUno?</a></li>
             <li class="linav"><a href="proyectos.html">Proyectos</a></li>
             <li class="linav"><a href="eventos.html">Eventos</a></li>
-            <li class="linav"><a href="contacto.html">Contacto</a></li>
+            <li class="linav"><a href="contacto.php">Contacto</a></li>
 </ul>
 </nav>
 
@@ -40,7 +61,28 @@
 <div class="cuadrocentral">
     <div class="articulovistahome">
        
-    <p style="font-family: monospace">Solicita acceso a la lista de correos enviando un mail aca</p>
+    <p style="font-family: monospace">Solicita acceso a la lista de correos enviando un mail <a target="_blank" href="http://lista.gnuno.com.ar/listinfo/uno-informatica">ACÁ</a>.</p>
+        
+     <hr>
+        <p style="font-family: monospace">Podes entrar al <a target="_blank" href="http://www.uno-foros.com.ar/viewforum.php?f=250">FORO</a> tambien.</p>
+        
+     <hr>
+    <p style="font-family: monospace">Mandanos un mensaje desde aca</p>
+    <form  action="#" method="POST">
+    Nombre:<br>
+    <input name="nombre" type="text" required value="" size="30"/>
+        <span style="color:red">* <?php echo $nameError;?></span>
+        <br>
+    Email:<br>
+    <input name="email" required type="text" value="" size="30"/>
+        <span style="color:red">* <?php echo $emailError;?></span><br>
+    Mensaje:<br>
+    <textarea name="mensaje" required rows="7" cols="30"></textarea>
+        <span style="color:red">* <?php echo $commentError;?></span><br>
+    <input name="submit" type="submit" value="Enviar"/>
+    </form>	
+
+					
     <hr>
    </div>    
 </div>
@@ -57,6 +99,7 @@
     </div>
   
 <footer>GNUNO 2016</footer>
-    
+
+
 </body>
 </html>
