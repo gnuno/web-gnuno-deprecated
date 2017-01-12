@@ -98,7 +98,7 @@ return $data;
     </div>
     </div>
   
-<footer>GNUNO 2016</footer>
+<footer>GNUNO <?php echo date('Y'); ?></footer>
 
 
 </body>
