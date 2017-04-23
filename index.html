@@ -11,7 +11,12 @@
 </head>
 <body>
 <header>
-    <img class="inner" src="images/tuxgnu.png" width="170" height="193" alt="Logo GNU/Linux"/><h1 class="inner" style="font-family:monospace; font-weight:bolder; font-size:20px; min-width: 600px">GNUno - Usuarios de GNU/Linux de la Universidad Nacional del Oeste</h1>
+    <table>
+        <tr>
+            <td><img src="images/tuxgnu.png" alt="Logo GNU/Linux"/></td>
+            <td><h1 class="inner" style="font-family:monospace; font-weight:bolder; font-size:20px">GNUno - Usuarios de GNU/Linux de la Universidad Nacional del Oeste</h1></td>
+        </tr>
+    </table>
 </header>
 <div class="continerprincipal">
 <div class="barraizquierda">
@@ -50,7 +55,7 @@ Los esperamos!
     </p>
         <p>  <a target="_blank" href="http://flisol.gnuno.com.ar/">Inscripcion FLISoL 2017</a></p>
         
-        <img src="https://flisol.info/Logo?action=AttachFile&do=get&target=FLISoL-2015.svg">
+        <img src="https://flisol.info/Logo?action=AttachFile&do=get&target=FLISoL-2015.svg" style="width: 100%">
         
         <p>Para mas información seguinos en Facebook como GNUno o inscribite en la lista de correos.</p>
     <hr>
@@ -66,7 +71,7 @@ Este Sábado 22 de Abril los esperamos en la UNO!
     </p>
         <p>  <a target="_blank" href="https://flisol.info/FLISOL2017/Argentina/Merlo">FLISoL: Sede Merlo</a></p>
         
-        <img src="https://flisol.info/Logo?action=AttachFile&do=get&target=FLISoL-2015.svg">
+        <img src="https://flisol.info/Logo?action=AttachFile&do=get&target=FLISoL-2015.svg" style="width: 100%">
         
         <p>Para mas información seguinos en Facebook como GNUno o inscribite en la lista de correos.</p>
     <hr>
@@ -100,7 +105,8 @@ Este Sábado 22 de Abril los esperamos en la UNO!
     </div>
     </div>
   
-<footer>GNUNO 2016</footer>
+<footer id="foot">GNUNO</footer>
+<script>document.getElementById("foot").innerText = "GNUNO " + new Date().getFullYear().toString();</script>
     
 </body>
 </html>
