@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
         <img class="inner" src="images/tuxgnu.png" width="170" height="193" alt="Logo GNU/Linux"/><h1 class="inner" style="font-family:monospace; font-weight:bolder; font-size:20px; min-width: 600px">GNUno - Usuarios de GNU/Linux de la Universidad Nacional del Oeste</h1>
     </header>
 
-    <div class="continerprincipal">
+    <div class="containerprincipal">
         <div class="barraizquierda">
             <nav class="navbar">
                 <h3 class="headerboxes">Contenidos</h3>
@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
                     <li class="linav"><a href="contacto.php">Contacto</a></li>
                 </ul>
             </nav>
-            <nav class="navbar2">
+            <nav class="navbar">
                 <h3 class="headerboxes">Links</h3>
                 <ul>    
                     <li class="linav"><a href="http://www.uno.edu.ar" target="_blank">Universidad Nacional del Oeste</a></li>

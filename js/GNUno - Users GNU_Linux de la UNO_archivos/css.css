@@ -39,10 +39,14 @@ ul a{
     position: relative;
     box-shadow: 2px 2px 5px grey;
     margin-bottom: 20px;
-    padding-top: 30px;
-    padding-left: -5px;
+    padding-top: 20px;
 }
 
+.headerboxes{
+    text-shadow: 2px 2px 4px #000000;
+    text-align:center;
+    font-family:monospace;
+}
 
 .barraderecha{
     float: left;
@@ -56,7 +60,9 @@ ul a{
 .navbarderecha{
     padding-top: 25%;
     padding-bottom: 15%;
+    float: left;
     width: 100%;
+    height: auto;
     border: 1px solid #457585;
     background: #D6E6F2;
     border-radius: 15px;
@@ -71,13 +77,16 @@ ul a{
 .containerprincipal{
     padding: 15px;
     float: left;
-
+    height: auto;
+    
     
 }
 .cuadrocentral {
     border-radius: 15px;
-    width: 40%;
+    width: 65%;
     float: left;
+    margin-left: 20px;
+    margin-right: 20px;
 
     
 }
@@ -101,25 +110,26 @@ h1 {
   font-family:monospace;
   font-weight:bolder;
   font-size:20px;
+  min-width: 300px
 }
 
-
-.headerboxes{
+h3 {
     font-family: monospace;
-    border: 1px solid #457585;
-    width: 100%;
-    position: absolute;
+    font-style: italic;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    font-style: italic;
-    top: -10px;
-    text-shadow: 2px 2px 4px #000000;
-    text-align:center;
-    font-family:monospace;
     background: #104050;
     color: #6C929F;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    border: 1px solid #457585;
 }
 
+h4 {
+    font-weight: bolder;
+    font-family: monospace
+}
 .articulovistahome{
     border: 2px solid #457585;
     margin-left: 20px;
@@ -128,7 +138,9 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px grey;
+    min-width: 80%;
     min-height: 250px;
+    height: auto;
 }
 
 footer {
