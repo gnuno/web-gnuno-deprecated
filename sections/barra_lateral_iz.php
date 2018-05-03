@@ -2,11 +2,11 @@
             <nav class="navbar">
                 <h3 class="headerboxes">Contenidos</h3>
                 <ul>    
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="softwarelibre.html">Software Libre</a></li>
-                    <li><a href="nosotros.html">¿Que es GNUno?</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
-                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="softwarelibre.php">Software Libre</a></li>
+                    <li><a href="nosotros.php">¿Que es GNUno?</a></li>
+                    <li><a href="proyectos.php">Proyectos</a></li>
+                    <li><a href="eventos.php">Eventos</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
                 </ul>
             </nav>
