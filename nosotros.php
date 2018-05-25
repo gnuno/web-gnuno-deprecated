@@ -8,8 +8,8 @@
         
         <div class="articulovistahome">
             <h4>¿Que es GNUno?</h4>
-            <p style="font-family: monospace">
-                <font style="font-weight:bolder">GNUno</font> comenzó con un grupo de compañeros de la carrera de Informática que quisimos organizarnos para que la Universidad Nacional del Oeste sea sede de la FLISoL (Festival Latinoamericano de Instalación de Software Libre) en el 2016. Por falta de tiempo no pudo ser, pero se armó un grupo interesante de gente y se fueron sumando adeptos con ganas de trabajar, compartir, aprender y enseñar. 
+            <p>
+                <strong>GNUno</strong> comenzó con un grupo de compañeros de la carrera de Informática que quisimos organizarnos para que la Universidad Nacional del Oeste sea sede de la FLISoL (Festival Latinoamericano de Instalación de Software Libre) en el 2016. Por falta de tiempo no pudo ser, pero se armó un grupo interesante de gente y se fueron sumando adeptos con ganas de trabajar, compartir, aprender y enseñar. 
             </p>
             <h4>¿Cuales son los objetivos?</h4>
             <p>
@@ -17,7 +17,7 @@
             </p>
             <h4>¿Donde puedo enterarme de las novedades?</h4>
             <p>
-                Nuestra vía principal de comunicación es la <font style="font-weight:bolder">lista de correos</font>, también se compartirá información relevante sobre eventos en el grupo de Facebook <font style="font-weight:bolder">Universidad Nacional del Oeste - Licenciatura en Informática</font> y en la página de Facebook <font style="font-weight:bolder">UNO Informática</font>. También en el <font style="font-weight:bolder">Foro No-Oficial de la UNO</font> hay un sub-foro dedicado para compartir información de manera persistente.
+                Nuestra vía principal de comunicación es la <strong>lista de correos</strong>, también se compartirá información relevante sobre eventos en el grupo de Facebook <font style="font-weight:bolder">Universidad Nacional del Oeste - Licenciatura en Informática</font> y en la página de Facebook <strong>UNO Informática</strong>. También en el <strong>Foro No-Oficial de la UNO</strong> hay un sub-foro dedicado para compartir información de manera persistente.
             </p>
             <h4>¿Como participar?</h4>
             <p>
