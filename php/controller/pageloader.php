@@ -1,8 +1,8 @@
 <?php
 
 function loadInnerPage(){
-	if(isset($_GET['inner-page'])){
-		$page = $_GET['inner-page'] . '.php';
+	if(isset($_GET['page'])){
+		$page = $_GET['page'] . '.php';
 		if (file_exists('sections/inner/'.$page)) {
 
 			require('sections/inner/' . $page);
