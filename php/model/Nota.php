@@ -18,7 +18,7 @@ class Nota{
 
         try{
 
-            $link = ConexionMySQL::conectar;
+            $link = ConexionMySQL::conectar();
 
             $sql = "INSERT INTO notas (titulo, cuerpo, autor, tipoNota) VALUES (:titulo, :cuerpo, :autor, :tipoNota)";
 
@@ -41,7 +41,7 @@ class Nota{
 
         try{
 
-            $link = ConexionMySQL::conectar;
+            $link = ConexionMySQL::conectar();
 
             $sql = "DELETE FROM notas WHERE idNota = :idNota";
 
@@ -56,16 +56,47 @@ class Nota{
 
     }
 
-    public function modificarNota(){
-
+    public function modificarNota($idNota){
+        
+            
     }
 
     public function verNotaPorID(){
 
+        try{
+            $link = ConexionMySQL::conectar();
+            
+            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota FROM notas WHERE idNota = :idNota";
+
+            $stmt = $link->prepare($sql);
+            $stmt->bindValue(":idNota", $idNota, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $nota = $stmt->fetch(PDO::FETCH_BOTH);
+
+            return $nota;
+            
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
     }
 
     public function verNotas(){
-        
+        try{
+            $link = ConexionMySQL::conectar();
+            
+            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota FROM notas";
+
+            $stmt = $link->prepare($sql);
+            $stmt->execute();
+
+            $notas = $stmt->fetchAll(PDO::FETCH_BOTH);
+
+            return $notas;
+            
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
     }
 
     public function 
