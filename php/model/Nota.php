@@ -16,9 +16,43 @@ class Nota{
 
     public function agregarNota(){
 
+        try{
+
+            $link = ConexionMySQL::conectar;
+
+            $sql = "INSERT INTO notas (titulo, cuerpo, autor, tipoNota) VALUES (:titulo, :cuerpo, :autor, :tipoNota)";
+
+            $stmt = $link->prepare($sql);
+            $stmt->bindValue(":titulo", $titulo, PDO::PARAM_STR);
+            $stmt->bindValue(":cuerpo", $cuerpo, PDO::PARAM_STR);
+            $stmt->bindValue(":autor", $autor, PDO::PARAM_INT);
+            $stmt->bindValue(":tipoNota", $tipoNota, PDO::PARAM_INT);
+            $stmt->bindValue(":fecha", date("Y-m-d"), PDO::PARAM_STR);
+
+            return $stmt->execute();
+            
+        }catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+
     }
 
-    public function eliminarNota(){
+    public function eliminarNota($idNota){
+
+        try{
+
+            $link = ConexionMySQL::conectar;
+
+            $sql = "DELETE FROM notas WHERE idNota = :idNota";
+
+            $stmt = $link->prepare($sql);
+            $stmt->bindValue(":idNota", $idNota, PDO::PARAM_INT);
+
+            return $stmt->execute();
+
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
 
     }
 
