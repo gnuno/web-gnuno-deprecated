@@ -17,6 +17,12 @@
 
     if(isset($_POST['enviar_nota'])){
         $objNota->agregarNota();
+        unset($_POST['enviar_nota']);
+    }
+
+    if(isset($_POST['deslogueo'])){
+        session_destroy();
+        session_unset();
     }
 
 ?>
@@ -42,7 +48,7 @@
         <input type="submit" name="enviar_nota">
         <br>
         <br>
-    </form>
     <input type="submit" name="deslogueo" value="Desloguearse">
+    </form>
 </body>
 </html>
