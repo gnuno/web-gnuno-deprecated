@@ -8,15 +8,13 @@
     $objNota = new Nota();
 
     $notas = $objNota->verNotas();
-?>
-<?php
 
-foreach($notas as $nota){
+    foreach($notas as $nota){
 ?>
-<div class="articulovistahome">
-    <h4><?= $nota['titulo'] ?></h4>
-    <p><?= $nota['cuerpo'] ?></p>
-    <hr>
-    <p><?= $nota['fecha'] ?></p>
-</div>
+    <div class="articulovistahome">
+        <h4><?= $nota['titulo'] ?></h4>
+        <p><?= $nota['cuerpo'] ?></p>
+        <hr>
+        <p><?= $nota['fecha'] ?></p>
+    </div>
 <?php } ?>
