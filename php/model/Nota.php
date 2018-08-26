@@ -81,7 +81,7 @@ class Nota{
     }
 
     public function verNotaPorID(){
-
+        
         try{
             $link = ConexionMySQL::conectar();
             

@@ -29,10 +29,41 @@ class Usuario{
 
     public function verUsuarios(){
 
+        try{
+            $link = ConexionMySQL::conectar();
+            
+            $sql = "SELECT idUsuario, nombre, mail, permisos, habilitado FROM usuarios";
+
+            $stmt = $link->prepare($sql);
+            $stmt->execute();
+
+            $usuarios = $stmt->fetchAll(PDO::FETCH_BOTH);
+
+            return $usuarios;
+            
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
     }
 
-    public function verUsuarioPorID(){
+    public function verUsuarioPorID($idUsuario){
+        
+        try{
+            $link = ConexionMySQL::conectar();
+            
+            $sql = "SELECT idUsuario, nombre, mail, permisos, habilitado, password, fechaAlta, articulos FROM usuarios WHERE idUsuario = :idUsuario";
 
+            $stmt = $link->prepare($sql);
+            $stmt->bindValue(":idUsuario", $idUsuario, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $usuarios = $stmt->fetch(PDO::FETCH_BOTH);
+
+            return $usuarios;
+            
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
     }
 
     public function validarPassword(){
