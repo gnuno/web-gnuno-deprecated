@@ -66,8 +66,28 @@ class Usuario{
         }
     }
 
-    public function validarPassword(){
+    public function validarPassword($usuario, $password_raw){
+        
+        try{
 
+            $password = md5($password_raw);
+            $link = ConexionMySQL::conectar();
+            
+            $sql = "SELECT password FROM usuarios WHERE usuario = :usuario";
+
+            $stmt = $link->prepare($sql);
+            $stmt->bindValue(":usuario", $usuario, PDO::PARAM_STR);
+            $stmt->execute();
+
+            if($password == $stmt->fetch(PDO::FETCH_BOTH)['password']){
+                return true;
+            }
+            
+            return false;
+
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
     }
 
     /**
