@@ -108,7 +108,7 @@ class Nota{
         try{
             $link = ConexionMySQL::conectar();
             
-            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota FROM notas";
+            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota FROM notas ORDER BY idNota DESC";
 
             $stmt = $link->prepare($sql);
             $stmt->execute();
@@ -122,7 +122,7 @@ class Nota{
         }
     }
 
-    
+
     /**
      * Get the value of idNota
      */ 

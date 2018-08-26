@@ -1,4 +1,5 @@
 <?php 
+
     require('php/controller/pageloader.php');
     require('sections/header.php'); 
 ?>
