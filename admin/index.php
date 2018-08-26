@@ -7,6 +7,10 @@
 
     if(isset($_POST['login'])){
         if($objUsuario->validarPassword($_POST['usuario'], $_POST['password_u'])){
+            session_start();
+            $_SESSION['id'] = md5(date("Y:m:d"));
+            $_SESSION['idUsuario'] = $objUsuario->getIdUsuario();
+            $_SESSION['permisos'] = $objUsuario->getPermisos();
             unset($_POST['login']);
             header("Location: panel.php");
         }

@@ -73,13 +73,17 @@ class Usuario{
             $password = md5($password_raw);
             $link = ConexionMySQL::conectar();
             
-            $sql = "SELECT password FROM usuarios WHERE mail = :mail";
+            $sql = "SELECT idUsuario, permisos, password FROM usuarios WHERE mail = :mail";
 
             $stmt = $link->prepare($sql);
             $stmt->bindValue(":mail", $mail, PDO::PARAM_STR);
             $stmt->execute();
 
-            if($password == $stmt->fetch(PDO::FETCH_BOTH)['password']){
+            $usuario = $stmt->fetch(PDO::FETCH_BOTH);
+
+            if($password == $usuario['password']){
+                $this->setIdUsuario($usuario['idUsuario']);
+                $this->setPermisos($usuario['permisos']);
                 return true;
             }
 
