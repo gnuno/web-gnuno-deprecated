@@ -1,3 +1,15 @@
+<?php
+    require('../php/model/Usuario.php');
+
+    $objUsuario = new Usuario();
+
+    if(isset($_POST['login'])){
+        if($objUsuario->validarPassword($_POST['usuario'], $_POST['password_u'])){
+            unset($_POST['login']);
+            header("Location: panel.php");
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +27,7 @@
         <input type="text" name="usuario" id="usuario"></label>
         <label for="password_u">Password: 
         <input type="password" name="password_u" id="password_u"></label>
-        <input type="submit">
+        <input type="submit" name="login">
     </form>
 </body>
 </html>
