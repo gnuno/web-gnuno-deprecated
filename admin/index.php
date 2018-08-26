@@ -1,4 +1,6 @@
 <?php
+    require('../php/init/config.php');
+    require('../php/model/ConexionMySQL.php');
     require('../php/model/Usuario.php');
 
     $objUsuario = new Usuario();
@@ -22,7 +24,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <form action="" action="POST">
+    <form action="" method="POST">
         <label for="usuario">Usuario: 
         <input type="text" name="usuario" id="usuario"></label>
         <label for="password_u">Password: 

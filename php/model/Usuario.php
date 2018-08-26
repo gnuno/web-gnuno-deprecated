@@ -66,23 +66,23 @@ class Usuario{
         }
     }
 
-    public function validarPassword($usuario, $password_raw){
+    public function validarPassword($mail, $password_raw){
         
         try{
 
             $password = md5($password_raw);
             $link = ConexionMySQL::conectar();
             
-            $sql = "SELECT password FROM usuarios WHERE usuario = :usuario";
+            $sql = "SELECT password FROM usuarios WHERE mail = :mail";
 
             $stmt = $link->prepare($sql);
-            $stmt->bindValue(":usuario", $usuario, PDO::PARAM_STR);
+            $stmt->bindValue(":mail", $mail, PDO::PARAM_STR);
             $stmt->execute();
 
             if($password == $stmt->fetch(PDO::FETCH_BOTH)['password']){
                 return true;
             }
-            
+
             return false;
 
         }catch(Exception $e){
