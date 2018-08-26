@@ -16,18 +16,22 @@ class Nota{
 
     public function agregarNota(){
 
+        $titulo = $_POST['titulo'];
+        $cuerpo = $_POST['cuerpo'];
+        $autor = $_POST['autor'];
+        $tipoNota = $_POST['tipoNota'];
+
         try{
 
             $link = ConexionMySQL::conectar();
 
-            $sql = "INSERT INTO notas (titulo, cuerpo, autor, tipoNota) VALUES (:titulo, :cuerpo, :autor, :tipoNota)";
+            $sql = "INSERT INTO notas (titulo, cuerpo, autor, tipoNota, fecha) VALUES (:titulo, :cuerpo, :autor, :tipoNota, CURDATE())";
 
             $stmt = $link->prepare($sql);
             $stmt->bindValue(":titulo", $titulo, PDO::PARAM_STR);
             $stmt->bindValue(":cuerpo", $cuerpo, PDO::PARAM_STR);
             $stmt->bindValue(":autor", $autor, PDO::PARAM_INT);
             $stmt->bindValue(":tipoNota", $tipoNota, PDO::PARAM_INT);
-            $stmt->bindValue(":fecha", date("Y-m-d"), PDO::PARAM_STR);
 
             return $stmt->execute();
             
@@ -118,8 +122,7 @@ class Nota{
         }
     }
 
-    public function 
-
+    
     /**
      * Get the value of idNota
      */ 
