@@ -16,7 +16,7 @@
                 <ul>
 
                     <li><a href="http://www.uno.edu.ar" target="_blank">Universidad Nacional del Oeste</a></li>
-                    <li><a href="https://forouno.org" target="_blank">Foro UNO</a></li>
+                    <li><a href="http://www.uno-foros.com.ar" target="_blank">Foro No-Oficial de la UNO</a></li>
                     <li><a href="https://www.gnu.org/gnu/gnu.html" target="_blank">Proyecto GNU</a></li>
                     <li><a href="https://www.fsf.org/?set_language=es" target="_blank">Free Software Fundation</a></li>
                 </ul>
