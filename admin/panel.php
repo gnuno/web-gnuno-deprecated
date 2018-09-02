@@ -37,12 +37,13 @@
         crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="../css/css.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <script src="ckeditor/ckeditor.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <div class="row">
-        <div class="col-md-3 ml-md-auto">
+    <div class="row justify-content-around">
+        <div class="col col-md-8">
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="titulo">Titulo:</label>
@@ -58,12 +59,16 @@
                 
             </form>
         </div>
-        <div class="col-md-2 ml-md-auto">
-            <form action="" method="POST" style="float:right">
+        <div class="col col-md-2">
+            <form action="" method="POST" style="">
             <input type="submit" name="deslogueo" class="btn btn-danger mb-2 mr-sm-2" value="Desloguearse">
             </form>
         </div>
     </div>
-
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace('cuerpo');
+    </script>
 </body>
 </html>
