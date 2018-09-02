@@ -37,7 +37,7 @@
         crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="../css/css.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-    <script src="ckeditor/ckeditor.js"></script>
+    <script src="../ckeditor/ckeditor.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
@@ -60,15 +60,22 @@
             </form>
         </div>
         <div class="col col-md-2">
-            <form action="" method="POST" style="">
+            <form action="" method="POST" style="float:right">
             <input type="submit" name="deslogueo" class="btn btn-danger mb-2 mr-sm-2" value="Desloguearse">
             </form>
         </div>
     </div>
     <script>
+        var textarea = document.getElementById('cuerpo');
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
-        CKEDITOR.replace('cuerpo');
+        var editor = CKEDITOR.replace(textarea,{
+            filebrowserBrowseUrl: '../ckfinder/ckfinder.html',
+            filebrowserImageBrowseUrl: '../ckfinder/ckfinder.html?type=Images',
+            filebrowserUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
+        });
+        CKFinder.setupCKEditor( editor );
     </script>
 </body>
 </html>
