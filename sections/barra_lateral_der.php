@@ -1,4 +1,4 @@
-    <div class="barralateral">
+    <div class="w3-col l2">
         <nav class="navbar">
             <h3 class="headerboxes">Amigos</h3>
             <div class="imagenesamigos">

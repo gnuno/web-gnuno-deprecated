@@ -1,20 +1,15 @@
 body{
-    font-family: monospace;
+    font-family: Lato, monospace;
     background-color:#FFFFFF;
 }
 
 footer {
     width: 100%;
-    font-family: monospace;
     font-size: 10px;
     text-align: center;
-    float: left;
 }
 
 header{
-    font-family:inherit;
-    height: 13rem;
-    width: 100%;
     background: #022835;
     border-bottom: 2px solid #022835;
     color: #6C929F;
@@ -25,21 +20,17 @@ header{
     
 }
 
-.inner{
+.inner {
     display: inline-block;
     vertical-align: middle;
-    font-family:monospace;
     font-weight:bolder;
 }
 
 .barralateral{
     float: left;
-    width: 20%;
-    min-height: 70rem;
 }
 .navbar{    
     background: #D6E6F2;
-    font-family: monospace;
     border: 1px solid #457585;
     border-radius: 15px;
     position: relative;
@@ -49,7 +40,6 @@ header{
 }
 
 .navbar ul{
-    font-family:monospace; 
     padding-top: 15%;
     padding-right: 17%;
     list-style: none;
@@ -76,7 +66,6 @@ header{
 .headerboxes{
     text-shadow: 2px 2px 4px #000000;
     text-align:center;
-    font-family:monospace;
     font-style: italic;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -98,7 +87,6 @@ header{
 }
 
 .containerprincipal{
-
     min-width: 76.6em !important;
     max-width: 76.8em !important;
     height: auto;
@@ -107,27 +95,17 @@ header{
 }
 .cuadrocentral {
     border-radius: 15px;
-    width: 55%;
     float: left;
-    min-width: 50%;    
 }
 
-
-.articulovistahome{
-    font-family: monospace;
-    border: 2px solid #457585;
-    margin-left: 20px;
-    margin-right: 20px;
+.articulovistahome {
+    border: 2px solid #457585;  
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px grey;
-    min-width: 80%;
-    min-height: 250px;
-    height: auto;
+    box-shadow: 2px 2px 5px grey;  
 }
 
-.articulovistahome h4{
-    font-family: monospace;
+.articulovistahome h4 {
     font-weight: bolder;
 }
