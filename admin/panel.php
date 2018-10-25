@@ -42,6 +42,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
+    <!-- Listado de Artículos -->
+    <div class="row justify-content-around">
+        <?php
+        $notas = $objNota->verNotas();
+        ?>
+        <div class="col col-md8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Tipo Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($notas as $unaNota) { ?>
+                    <tr>
+                        <th scope="row"><?php echo $unaNota['idNota']; ?></th>
+                        <td><?php echo $unaNota['autor']; ?></td>
+                        <td><?php echo $unaNota['titulo']; ?></td>
+                        <td><?php echo $unaNota['fecha']; ?></td>
+                        <td><?php echo $unaNota['tipoNota']; ?></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>        
+    </div>
+    <!-- / Listado de Artículos -->
+
     <div class="row justify-content-around">
         <div class="col col-md-8">
             <form action="" method="POST">
