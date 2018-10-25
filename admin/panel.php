@@ -42,8 +42,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
+    <!-- Listado de Artículos -->
     <div class="row justify-content-around">
-        <!-- Listado de Artículos -->
         <?php
         $notas = $objNota->verNotas();
         ?>
@@ -70,9 +70,11 @@
                 <?php } ?>
                 </tbody>
             </table>
-        </div>
-        <!-- / Listado de Artículos -->
+        </div>        
+    </div>
+    <!-- / Listado de Artículos -->
 
+    <div class="row justify-content-around">
         <div class="col col-md-8">
             <form action="" method="POST">
                 <div class="form-group">
