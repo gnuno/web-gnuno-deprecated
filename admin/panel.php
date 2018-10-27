@@ -2,7 +2,7 @@
 
     session_start();
     
-    if(!isset($_SESSION['id'])){
+    if(!isset($_SESSION['id'])) {
         header("Location: ./index.php");
     }
 
@@ -17,8 +17,31 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(isset($_POST['enviar_nota'])) {
-            $objNota->agregarNota();
-            unset($_POST['enviar_nota']);
+            if (isset($_POST['accion']) && !empty($_POST['accion'])) {
+                switch($_POST['accion']) {
+                    case 'editar': 
+                        $objNota->setIdNota($_POST['idNota']);
+                        $objNota->setTipoNota($_POST['tipoNota']);
+                        $objNota->setTitulo($_POST['titulo']);
+                        $objNota->setCuerpo($_POST['cuerpo']);
+                        $objNota->setFecha($_POST['fecha']);
+                        $objNota->setAutor($_POST['autor']);
+
+                        // TODO: Codificar eliminación lógica
+                        $objNota->setHabilitada(1);
+
+                        $objNota->modificarNota($_POST['idNota']);
+
+                        header('Location: panel.php');
+
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                $objNota->agregarNota();
+                unset($_POST['enviar_nota']);
+            }
         }
 
         if(isset($_POST['deslogueo'])) {
@@ -36,14 +59,12 @@
                 case 'editar':
                     $editar = true;
                     $notaPorId = $objNota->setIdNota($_GET['id'])->verNotaPorID();
-
                     break;
                 default: 
                     break;
             }
         }
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,6 +121,11 @@
                     <input type="text" name="titulo" id="titulo" class="form-control form-control-sm" <?php if($accion && $editar) { ?>value="<?php echo htmlentities($notaPorId['titulo']); ?>"<?php } ?> required>
                 </div >
                 <input type="hidden" name="autor" value="<?= $_SESSION['idUsuario'] ?>">
+                <?php if ($accion && $editar) { ?>
+                    <input type="hidden" name="idNota" value="<?php echo $notaPorId['idNota']; ?>">
+                    <input type="hidden" name="fecha" value="<?php echo $notaPorId['fecha']; ?>">                    
+                    <input type="hidden" name="accion" value="editar">
+                <?php } ?>
                 <input type="hidden" name="tipoNota" value="1">
                 <div class="form-group">
                     <label for="cuerpo">Cuerpo:</label>
@@ -129,7 +155,8 @@
             filebrowserUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
             filebrowserImageUploadUrl: '../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'
         });
-        CKFinder.setupCKEditor( editor );
+        // FIX: CKFinder no existe
+        // CKFinder.setupCKEditor( editor );
     </script>
 </body>
 </html>
