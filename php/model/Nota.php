@@ -92,13 +92,13 @@ class Nota{
             $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota FROM notas WHERE idNota = :idNota";
 
             $stmt = $link->prepare($sql);
-            $stmt->bindValue(":idNota", $idNota, PDO::PARAM_INT);
+            $stmt->bindValue(":idNota", $this->idNota, PDO::PARAM_INT);
             $stmt->execute();
 
             $nota = $stmt->fetch(PDO::FETCH_BOTH);
 
             return $nota;
-            
+
         }catch(Exception $e){
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }

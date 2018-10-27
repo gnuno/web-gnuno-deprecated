@@ -15,15 +15,33 @@
     $objUsuario = new Usuario();
     $objNota = new Nota();
 
-    if(isset($_POST['enviar_nota'])){
-        $objNota->agregarNota();
-        unset($_POST['enviar_nota']);
-    }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST['enviar_nota'])) {
+            $objNota->agregarNota();
+            unset($_POST['enviar_nota']);
+        }
 
-    if(isset($_POST['deslogueo'])){
-        session_destroy();
-        session_unset();
-        header("Location: ../index.php");
+        if(isset($_POST['deslogueo'])) {
+            session_destroy();
+            session_unset();
+            header("Location: ../index.php");
+        }
+    } else {
+        $accion = false;
+        $editar = false;
+
+        if (isset($_GET['accion']) && !empty($_GET['accion'])) {
+            $accion = true;            
+            switch($_GET['accion']) {
+                case 'editar':
+                    $editar = true;
+                    $notaPorId = $objNota->setIdNota($_GET['id'])->verNotaPorID();
+
+                    break;
+                default: 
+                    break;
+            }
+        }
     }
 
 ?>
@@ -63,7 +81,7 @@
                     <tr>
                         <th scope="row"><?php echo $unaNota['idNota']; ?></th>
                         <td><?php echo $unaNota['autor']; ?></td>
-                        <td><?php echo $unaNota['titulo']; ?></td>
+                        <td><a href="panel.php?accion=editar&id=<?php echo $unaNota['idNota']; ?>" title="<?php echo $unaNota['titulo']; ?>"><?php echo $unaNota['titulo']; ?></a></td>
                         <td><?php echo $unaNota['fecha']; ?></td>
                         <td><?php echo $unaNota['tipoNota']; ?></td>
                     </tr>
@@ -79,13 +97,19 @@
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="titulo">Titulo:</label>
-                    <input type="text" name="titulo" id="titulo" class="form-control form-control-sm" required>
+                    <input type="text" name="titulo" id="titulo" class="form-control form-control-sm" <?php if($accion && $editar) { ?>value="<?php echo htmlentities($notaPorId['titulo']); ?>"<?php } ?> required>
                 </div >
                 <input type="hidden" name="autor" value="<?= $_SESSION['idUsuario'] ?>">
                 <input type="hidden" name="tipoNota" value="1">
                 <div class="form-group">
                     <label for="cuerpo">Cuerpo:</label>
-                    <textarea name="cuerpo" id="cuerpo" class="form-control" cols="30" rows="10" required></textarea>
+                    <textarea name="cuerpo" id="cuerpo" class="form-control" cols="30" rows="10" required>
+                    <?php
+                    if ($accion && $editar) {
+                        echo $notaPorId['cuerpo'];
+                    }
+                    ?>
+                    </textarea>
                 </div>
                 <input class="btn btn-primary" type="submit" name="enviar_nota" value="Agregar Nota">
                 
@@ -99,8 +123,6 @@
     </div>
     <script>
         var textarea = document.getElementById('cuerpo');
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
         var editor = CKEDITOR.replace(textarea,{
             filebrowserBrowseUrl: '../ckfinder/ckfinder.html',
             filebrowserImageBrowseUrl: '../ckfinder/ckfinder.html?type=Images',
