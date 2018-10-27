@@ -69,12 +69,12 @@ class Nota{
             $sql = "UPDATE notas SET cuerpo = :cuerpo, titulo = :titulo, fecha = :fecha, autor = :autor, tipoNota = :tipoNota WHERE idNota = :idNota";
 
             $stmt = $link->prepare($sql);
-            $stmt->bindValue(":cuerpo", $cuerpo, PDO::PARAM_STR);
-            $stmt->bindValue(":titulo", $titulo, PDO::PARAM_STR);
-            $stmt->bindValue(":tipoNota", $tipoNota, PDO::PARAM_INT);
-            $stmt->bindValue(":autor", $autor, PDO::PARAM_INT);
-            $stmt->bindValue(":idNota", $idNota, PDO::PARAM_INT);
-            $stmt->bindValue(":fecha", $fecha, PDO::PARAM_STR);
+            $stmt->bindValue(":cuerpo", $this->$cuerpo, PDO::PARAM_STR);
+            $stmt->bindValue(":titulo", $this->$titulo, PDO::PARAM_STR);
+            $stmt->bindValue(":tipoNota", $this->$tipoNota, PDO::PARAM_INT);
+            $stmt->bindValue(":autor", $this->$autor, PDO::PARAM_INT);
+            $stmt->bindValue(":idNota", $this->$idNota, PDO::PARAM_INT);
+            $stmt->bindValue(":fecha", $this->$fecha, PDO::PARAM_STR);
             
             return $stmt->execute();
 
