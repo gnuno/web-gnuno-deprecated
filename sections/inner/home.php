@@ -6,6 +6,7 @@
     date_default_timezone_set("America/Argentina/Buenos_Aires");
     setlocale(LC_ALL,"es_ES");
     $objNota = new Nota();
+    $objUsuario = new Usuario();
 
     $notas = $objNota->verNotas();
 
@@ -15,6 +16,6 @@
         <h4><?= $nota['titulo'] ?></h4>
         <p><?= $nota['cuerpo'] ?></p>
         <hr>
-        <p><?= $nota['fecha'] ?></p>
+        <p><em>Escrito por <?= $objUsuario->verUsuarioPorID($nota['autor'])['nombre'] ?> - <?= $nota['fecha'] ?></em></p>
     </div>
 <?php } ?>

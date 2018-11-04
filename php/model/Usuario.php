@@ -51,7 +51,7 @@ class Usuario{
         try{
             $link = ConexionMySQL::conectar();
             
-            $sql = "SELECT idUsuario, nombre, mail, permisos, habilitado, password, fechaAlta, articulos FROM usuarios WHERE idUsuario = :idUsuario";
+            $sql = "SELECT idUsuario, nombre, mail, permisos, habilitado, password, fechaAlta FROM usuarios WHERE idUsuario = :idUsuario";
 
             $stmt = $link->prepare($sql);
             $stmt->bindValue(":idUsuario", $idUsuario, PDO::PARAM_INT);
