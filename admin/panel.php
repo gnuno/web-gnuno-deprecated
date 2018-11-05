@@ -28,7 +28,7 @@
                         $objNota->setAutor($_POST['autor']);
 
                         // TODO: Codificar eliminación lógica
-                        $objNota->setHabilitada(1);
+                        $objNota->setHabilitada($_GET['habilitada']);
 
                         $objNota->modificarNota($_POST['idNota']);
 
@@ -59,6 +59,9 @@
                 case 'editar':
                     $editar = true;
                     $notaPorId = $objNota->setIdNota($_GET['id'])->verNotaPorID();
+                    break;
+                case 'habilitar':
+                    $objNota->notaHabilitada($_GET['id'], $_GET['habilitada']);
                     break;
                 default: 
                     break;
@@ -95,6 +98,7 @@
                         <th scope="col">Título</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Tipo Nota</th>
+                        <th scope="col">Estado</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -105,6 +109,7 @@
                         <td><a href="panel.php?accion=editar&id=<?php echo $unaNota['idNota']; ?>" title="<?php echo $unaNota['titulo']; ?>"><?php echo $unaNota['titulo']; ?></a></td>
                         <td><?php echo $unaNota['fecha']; ?></td>
                         <td><?php echo $unaNota['tipoNota']; ?></td>
+                        <td><a href="panel.php?accion=habilitar&id=<?php echo $unaNota['idNota']; ?>&habilitada=<?= ($unaNota['habilitada'])?  '0' : '1'; ?>"><?= ($unaNota['habilitada'])?  'Habilitada' : 'Deshabilitada'; ?></td>
                     </tr>
                 <?php } ?>
                 </tbody>
@@ -137,7 +142,9 @@
                     ?>
                     </textarea>
                 </div>
-                <input class="btn btn-primary" type="submit" name="enviar_nota" value="Agregar Nota">
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" name="enviar_nota" value="Agregar Nota">
+                </div>
                 
             </form>
         </div>

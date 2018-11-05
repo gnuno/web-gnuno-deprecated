@@ -11,6 +11,7 @@
     $notas = $objNota->verNotas();
 
     foreach($notas as $nota){
+        if($nota['habilitada']){
 ?>
     <div class="articulovistahome">
         <h4><?= $nota['titulo'] ?></h4>
@@ -18,4 +19,4 @@
         <hr>
         <p><em>Escrito por <?= $objUsuario->verUsuarioPorID($nota['autor'])['nombre'] ?> - <?= $nota['fecha'] ?></em></p>
     </div>
-<?php } ?>
+<?php }} ?>

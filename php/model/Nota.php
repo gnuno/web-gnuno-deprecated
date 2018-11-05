@@ -88,7 +88,7 @@ class Nota{
         try{
             $link = ConexionMySQL::conectar();
             
-            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota FROM notas WHERE idNota = :idNota";
+            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota, habilitada FROM notas WHERE idNota = :idNota";
 
             $stmt = $link->prepare($sql);
             $stmt->bindValue(":idNota", $this->idNota, PDO::PARAM_INT);
@@ -129,7 +129,7 @@ class Nota{
             $sql = "UPDATE notas SET habilitada = :estado WHERE idNota = :idNota";
 
             $stmt = $link->prepare($sql);
-            $stmt->bindValue(":estado", !$estado, PDO::PARAM_BOOL);
+            $stmt->bindValue(":estado", $estado, PDO::PARAM_BOOL);
             $stmt->bindValue(":idNota", $idNota, PDO::PARAM_INT);
 
             return $stmt->execute();
