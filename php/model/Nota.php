@@ -107,7 +107,7 @@ class Nota{
         try{
             $link = ConexionMySQL::conectar();
             
-            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota FROM notas ORDER BY idNota DESC";
+            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota, habilitada FROM notas ORDER BY idNota DESC";
 
             $stmt = $link->prepare($sql);
             $stmt->execute();
@@ -120,7 +120,24 @@ class Nota{
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
     }
+    
+    public function notaHabilitada($idNota, $estado){
+        try{
 
+            $link = ConexionMySQL::conectar();
+            
+            $sql = "UPDATE notas SET habilitada = :estado WHERE idNota = :idNota";
+
+            $stmt = $link->prepare($sql);
+            $stmt->bindValue(":estado", !$estado, PDO::PARAM_BOOL);
+            $stmt->bindValue(":idNota", $idNota, PDO::PARAM_INT);
+
+            return $stmt->execute();
+            
+        }catch(Exception $e){
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+    }
 
     /**
      * Get the value of idNota
