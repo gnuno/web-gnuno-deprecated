@@ -16,6 +16,7 @@
     <div class="articulovistahome">
         <h4><?= $nota['titulo'] ?></h4>
         <p><?= $nota['cuerpo'] ?></p>
+        <p style="text-align: right"><a href="index.php?page=ver-articulo&id=<?= $nota['idNota'] ?>" target="_self">Ver Evento</a></p>
         <hr>
         <p><em>Escrito por <?= $objUsuario->verUsuarioPorID($nota['autor'])['nombre'] ?> - <?= $nota['fecha'] ?></em></p>
     </div>

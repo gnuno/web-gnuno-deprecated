@@ -6,6 +6,7 @@
             <li><a href="index.php?page=home">Inicio</a></li>
             <li><a href="index.php?page=softwarelibre">Software Libre</a></li>
             <li><a href="index.php?page=nosotros">¿Que es GNUno?</a></li>
+            <li><a href="index.php?page=articulos">Art&iacute;culos</a></li>
             <li><a href="index.php?page=proyectos">Proyectos</a></li>
             <li><a href="index.php?page=eventos">Eventos</a></li>
             <li><a href="index.php?page=contacto">Contacto</a></li>

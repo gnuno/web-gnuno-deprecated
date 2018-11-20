@@ -8,7 +8,7 @@
     $objNota = new Nota();
     $objUsuario = new Usuario();
 
-    $notas = $objNota->verNotas(1);
+    $notas = $objNota->verNotas(2);
 
     foreach($notas as $nota){
         if($nota['habilitada']){
@@ -16,9 +16,8 @@
     <div class="articulovistahome">
         <h4><?= $nota['titulo'] ?></h4>
         <p><?= $nota['cuerpo'] ?></p>
-
-        <p style="text-align: right"><a href="index.php?page=ver-articulo&id=<?= $nota['idNota'] ?>" target="_self">Ver Noticia</a></p>
+        <p style="text-align: right"><a href="index.php?page=ver-articulo&id=<?= $nota['idNota'] ?>" target="_self">Ver Art&iacute;culo</a></p>
         <hr>
-        <p style="text-align: right"><em>Escrito por <?= $objUsuario->verUsuarioPorID($nota['autor'])['nombre'] ?> - <?= $nota['fecha'] ?></em></p>
+        <p><em>Escrito por <?= $objUsuario->verUsuarioPorID($nota['autor'])['nombre'] ?> - <?= $nota['fecha'] ?></em></p>
     </div>
 <?php }} ?>
