@@ -1,11 +1,22 @@
-<div class="articulovistahome">
-    <p>
-        <a target="_blank" href="http://flisol.gnuno.com.ar/">
-            <img src="images/FLISoL-2015.svg">
-        </a>
-    </p>
-    <p>¡La FLISoL llega a la Universidad Nacional del Oeste! Este Abril vamos a estar festejando la FLISoL (Festival Latinoamericano
-        de Instalación de Software Libre) y queremos que participes! Hace click en la imagen e inscribite!</p>
-    <hr>
-    <p>08 de Enero, 2017.</p>
-</div>
+<?php
+    require('php/init/config.php');
+    require('php/model/ConexionMySQL.php');
+    require('php/model/Nota.php');
+    require('php/model/Usuario.php');
+    date_default_timezone_set("America/Argentina/Buenos_Aires");
+    setlocale(LC_ALL,"es_ES");
+    $objNota = new Nota();
+    $objUsuario = new Usuario();
+
+    $notas = $objNota->verNotas(3);
+
+    foreach($notas as $nota){
+        if($nota['habilitada']){
+?>
+    <div class="articulovistahome">
+        <h4><?= $nota['titulo'] ?></h4>
+        <p><?= $nota['cuerpo'] ?></p>
+        <hr>
+        <p><em>Escrito por <?= $objUsuario->verUsuarioPorID($nota['autor'])['nombre'] ?> - <?= $nota['fecha'] ?></em></p>
+    </div>
+<?php }} ?>

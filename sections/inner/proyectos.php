@@ -1,9 +1,21 @@
-<div class="articulovistahome">
-    <h4>unoDB</h4>
-    <p style="font-family: monospace">Motor de busqueda en base de datos hecho por alumnos en la cursada de Sistemas Operativos I, segundo cuatrimestre 2016.</p>
-    <hr>
-    <p>#db #motor</p>
-    <p>
-        <a href="https://github.com/davidlabragaona/unoDB" target="_blank">Unite al proyecto, colabora y aprendamos juntos</a>
-    </p>
-</div>
+<?php
+    require('php/init/config.php');
+    require('php/model/ConexionMySQL.php');
+    require('php/model/Nota.php');
+    require('php/model/Usuario.php');
+    date_default_timezone_set("America/Argentina/Buenos_Aires");
+    setlocale(LC_ALL,"es_ES");
+    $objNota = new Nota();
+    $objUsuario = new Usuario();
+
+    $notas = $objNota->verNotas(4);
+
+    foreach($notas as $nota){
+        if($nota['habilitada']){
+?>
+    <div class="articulovistahome">
+        <h4><?= $nota['titulo'] ?></h4>
+        <p><?= $nota['cuerpo'] ?></p>
+        <hr>
+    </div>
+<?php }} ?>
