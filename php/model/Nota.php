@@ -103,13 +103,14 @@ class Nota{
         }
     }
 
-    public function verNotas(){
+    public function verNotas($tipoNota){
         try{
             $link = ConexionMySQL::conectar();
             
-            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota, habilitada FROM notas ORDER BY idNota DESC";
+            $sql = "SELECT idNota, autor, cuerpo, titulo, fecha, tipoNota, habilitada FROM notas WHERE tipoNota = :tipoNota ORDER BY idNota DESC";
 
             $stmt = $link->prepare($sql);
+            $stmt->bindValue(":tipoNota", $tipoNota, PDO::PARAM_INT);
             $stmt->execute();
 
             $notas = $stmt->fetchAll(PDO::FETCH_BOTH);

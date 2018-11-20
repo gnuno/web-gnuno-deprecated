@@ -8,7 +8,7 @@
     $objNota = new Nota();
     $objUsuario = new Usuario();
 
-    $notas = $objNota->verNotas();
+    $notas = $objNota->verNotas(1);
 
     foreach($notas as $nota){
         if($nota['habilitada']){
