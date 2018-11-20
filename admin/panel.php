@@ -122,8 +122,21 @@
         <div class="col col-md-8">
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="titulo">Titulo:</label>
-                    <input type="text" name="titulo" id="titulo" class="form-control form-control-sm" <?php if($accion && $editar) { ?>value="<?php echo htmlentities($notaPorId['titulo']); ?>"<?php } ?> required>
+                    <div class="row">
+                        <div class="col">
+                            <label for="titulo">Titulo:</label>
+                            <input type="text" name="titulo" id="titulo" class="form-control form-control-sm" <?php if($accion && $editar) { ?>value="<?php echo htmlentities($notaPorId['titulo']); ?>"<?php } ?> required>
+                        </div>
+                        <div class="col">
+                            <label for="tipoNota">Tipo de Nota</label>
+                            <select class="custom-select" id="tipoNota" name="tipoNota">
+                                <option value="1">Noticia</option>
+                                <option value="2">Articulo</option>
+                                <option value="3">Evento</option>
+                                <option value="4">Proyecto</option>
+                            </select>
+                        </div>
+                    </div>
                 </div >
                 <input type="hidden" name="autor" value="<?= $_SESSION['idUsuario'] ?>">
                 <?php if ($accion && $editar) { ?>
@@ -131,7 +144,6 @@
                     <input type="hidden" name="fecha" value="<?php echo $notaPorId['fecha']; ?>">                    
                     <input type="hidden" name="accion" value="editar">
                 <?php } ?>
-                <input type="hidden" name="tipoNota" value="1">
                 <div class="form-group">
                     <label for="cuerpo">Cuerpo:</label>
                     <textarea name="cuerpo" id="cuerpo" class="form-control" cols="30" rows="10" required>
