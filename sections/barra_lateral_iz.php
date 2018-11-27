@@ -9,6 +9,7 @@
             <li><a href="index.php?page=articulos">Art&iacute;culos</a></li>
             <li><a href="index.php?page=proyectos">Proyectos</a></li>
             <li><a href="index.php?page=eventos">Eventos</a></li>
+            <li><a href="index.php?page=chatirc">Chat <span class="w3-text-red w3-small"> nuevo!</span></a></li>
             <li><a href="index.php?page=contacto">Contacto</a></li>
         </ul>
     </nav>
