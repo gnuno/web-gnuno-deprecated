@@ -12,14 +12,8 @@
 <body>
     <!-- Comienzo header -->
     <header class="w3-container">
-        <div class="w3-row">
-            <div class="w3-col">
-                <table>
-                    <tr>
-                        <td><img src="images/tuxgnu.png" alt="Logo GNU/Linux"/></td>
-                        <td><h2 class="inner">GNUno - Usuarios de GNU/Linux de la Universidad Nacional del Oeste</h2></td>
-                    </tr>
-                </table>
-            </div>
+        <div class="w3-center w3-round w3-cell-row">
+            <div class="w3-cell w3-cell-middle"><img src="images/tuxgnu.png" alt="Logo GNU/Linux"/></div>
+            <div class="w3-cell w3-cell-middle"><h2 class="inner">GNUno - Usuarios de GNU/Linux de la Universidad Nacional del Oeste</h2></div>
         </div>
     </header>
